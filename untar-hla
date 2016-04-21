@@ -1,0 +1,32 @@
+#!/bin/bash
+COUNTER=4
+for i in `seq 0 2`;
+  do
+    for j in `seq 1 9`;
+      do
+        cd /h/ahjiang/src/google-trace-analysis/hive/data/hla
+        echo -----------------
+        pwd
+        gunzip 201$i-0$j.tar.gz
+        tar -xvf 201$i-0$j.tar
+        cd 201$i-0$j
+        cp job.csv ../job/job-$COUNTER.csv
+        cp conf.csv ../conf/conf-$COUNTER.csv
+        cd ../
+        rm *.tar
+        rm -rf 201$i-0$j
+        let COUNTER=COUNTER+1
+      done   
+    for j in `seq 10 12`;
+      do
+        gunzip 201$i-$j.tar.gz
+        tar -xvf 201$i-$j.tar
+        cd 201$i-$j
+        cp job.csv ../job/job-$COUNTER.csv
+        cp conf.csv ../conf/conf-$COUNTER.csv
+        cd ../
+        rm *.tar
+        rm -rf 201$i-$j
+        let COUNTER=COUNTER+1
+      done   
+  done   

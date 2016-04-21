@@ -1,0 +1,11 @@
+#!/bin/bash
+  for i in `seq 0 2`;
+    do
+      for j in `seq 1 9`;
+        do
+          wget http://ftp.pdl.cmu.edu/pub/datasets/hla/201$i-0$j.tar.gz
+        done   
+        wget http://ftp.pdl.cmu.edu/pub/datasets/hla/201$i-10.tar.gz
+        wget http://ftp.pdl.cmu.edu/pub/datasets/hla/201$i-11.tar.gz
+        wget http://ftp.pdl.cmu.edu/pub/datasets/hla/201$i-12.tar.gz
+    done   
